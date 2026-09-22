@@ -478,7 +478,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
     <>
       <CampaignTracking campaign={campaign} />
       <div className="bg-[var(--color-brand-bg)] text-[var(--color-brand-ink)]">
-        <header className="sticky top-0 z-40 border-b border-[var(--color-brand-soft-border)] bg-[rgba(255,250,244,0.86)] backdrop-blur-xl">
+        <header className="sticky top-0 z-40 bg-[rgba(255,250,244,0.82)] backdrop-blur-xl">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-6 lg:px-8">
             <Link href="/" className="flex items-center gap-2.5">
               <GescoMark size={38} />
@@ -532,8 +532,9 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
                 sizes="100vw"
                 className="object-cover object-center"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,19,23,0.22),rgba(14,19,23,0.78)_72%,rgba(14,19,23,0.94))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,19,23,0.2),rgba(14,19,23,0.7)_68%,rgba(14,19,23,0.9)_88%)]" />
             </div>
+            <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,rgba(255,250,244,0),var(--color-brand-bg)_92%)] sm:h-56" />
 
             <div className="relative mx-auto flex min-h-[86svh] max-w-7xl flex-col justify-end px-5 pb-14 pt-24 sm:min-h-[92svh] sm:px-6 sm:pb-16 lg:px-8 lg:pb-20">
               <div
@@ -594,36 +595,41 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
             </div>
           </section>
 
-          <section className="overflow-hidden border-b border-white/10 bg-[var(--color-brand-ink)] py-4">
-            <div className="marquee-track" aria-hidden="true">
-              {[0, 1].map((repeat) => (
-                <div key={repeat} className="flex items-center">
-                  {(campaign.seasonMoments ?? []).map((moment) => (
-                    <span
-                      key={`${repeat}-${moment.label}`}
-                      className="mx-4 flex items-center gap-3 whitespace-nowrap text-lg text-white/85 sm:text-xl"
-                    >
-                      <span className="font-display italic text-[var(--color-brand-accent)]">
-                        {moment.label}
+          <section className="px-5 pt-10 sm:px-8 lg:px-8">
+            <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[var(--color-brand-ink)] py-4">
+              <div className="marquee-track" aria-hidden="true">
+                {[0, 1].map((repeat) => (
+                  <div key={repeat} className="flex items-center">
+                    {(campaign.seasonMoments ?? []).map((moment) => (
+                      <span
+                        key={`${repeat}-${moment.label}`}
+                        className="mx-4 flex items-center gap-3 whitespace-nowrap text-lg text-white/85 sm:text-xl"
+                      >
+                        <span className="font-display italic text-[var(--color-brand-accent)]">
+                          {moment.label}
+                        </span>
+                        {moment.title}
+                        <span className="text-white/25">&#10022;</span>
                       </span>
-                      {moment.title}
-                      <span className="text-white/25">&#10022;</span>
-                    </span>
-                  ))}
-                </div>
-              ))}
+                    ))}
+                  </div>
+                ))}
+              </div>
+              <p className="sr-only">
+                {(campaign.seasonMoments ?? [])
+                  .map((moment) => `${moment.label}: ${moment.title}`)
+                  .join(". ")}
+              </p>
             </div>
-            <p className="sr-only">
-              {(campaign.seasonMoments ?? [])
-                .map((moment) => `${moment.label}: ${moment.title}`)
-                .join(". ")}
-            </p>
           </section>
 
-          <section className="border-b border-[var(--color-brand-soft-border)] bg-white">
-            <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <section>
+            <div className="mx-auto max-w-6xl px-5 py-20 sm:px-6 lg:px-8 lg:py-32">
               <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-                <div data-reveal className="reveal-on-scroll">
+                <div
+                  data-reveal
+                  className="reveal-on-scroll lg:sticky lg:top-32 lg:self-start"
+                >
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent)]">
                     Why Gesco Stay
                   </p>
@@ -658,10 +664,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
             </div>
           </section>
 
-          <section
-            id="properties"
-            className="relative overflow-hidden border-b border-[var(--color-brand-soft-border)] bg-[var(--color-brand-bg)]"
-          >
+          <section id="properties" className="relative overflow-hidden">
             <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div data-reveal className="reveal-on-scroll max-w-lg">
@@ -750,8 +753,8 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
             </div>
           </section>
 
-          <section className="overflow-hidden border-b border-[var(--color-brand-soft-border)] bg-white">
-            <div className="mx-auto max-w-6xl px-5 py-16 text-center sm:px-6 lg:px-8 lg:py-24">
+          <section className="overflow-hidden">
+            <div className="mx-auto max-w-6xl px-5 py-20 text-center sm:px-6 lg:px-8 lg:py-28">
               <p
                 data-reveal
                 className="reveal-on-scroll text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent)]"
@@ -773,8 +776,8 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
             </div>
           </section>
 
-          <section className="dot-field bg-[var(--color-brand-ink)]">
-            <div className="mx-auto max-w-3xl px-5 py-20 text-center sm:px-6 lg:px-8 lg:py-28">
+          <section className="px-5 pb-20 sm:px-8 lg:px-8 lg:pb-28">
+            <div className="dot-field mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-[var(--color-brand-ink)] px-5 py-20 text-center sm:px-10 lg:py-28">
               <p
                 data-reveal
                 className="reveal-on-scroll font-display text-[2.4rem] italic leading-[1.08] text-white sm:text-[3.4rem]"
@@ -810,7 +813,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
           </section>
         </main>
 
-        <footer className="bg-[var(--color-brand-bg)]">
+        <footer>
           <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
             <div className="flex items-center gap-2.5">
               <GescoMark size={34} />
