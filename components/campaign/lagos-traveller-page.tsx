@@ -634,10 +634,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
                   data-reveal
                   className="reveal-on-scroll lg:sticky lg:top-32 lg:self-start"
                 >
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent)]">
-                    Why it feels different
-                  </p>
-                  <p className="mt-5 font-display text-[2.1rem] italic leading-[1.14] text-[var(--color-brand-ink)] sm:text-[2.6rem]">
+                  <p className="font-display text-[2.1rem] italic leading-[1.14] text-[var(--color-brand-ink)] sm:text-[2.6rem]">
                     &ldquo;We didn&apos;t build another listings site. We
                     built a way to land in Lagos and already feel
                     expected.&rdquo;
@@ -673,10 +670,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
             <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div data-reveal className="reveal-on-scroll max-w-lg">
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent)]">
-                    No algorithm picked these
-                  </p>
-                  <p className="mt-3 font-display text-[2rem] italic leading-[1.05] text-[var(--color-brand-ink)] sm:text-[2.5rem]">
+                  <p className="font-display text-[2rem] italic leading-[1.05] text-[var(--color-brand-ink)] sm:text-[2.5rem]">
                     Homes worth flying for.
                   </p>
                 </div>
@@ -762,14 +756,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
             <div className="mx-auto max-w-6xl px-5 py-20 text-center sm:px-6 lg:px-8 lg:py-28">
               <p
                 data-reveal
-                className="reveal-on-scroll text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent)]"
-              >
-                Meet the welcome committee
-              </p>
-              <p
-                data-reveal
-                className="reveal-on-scroll mx-auto mt-3 max-w-md font-display text-[2rem] italic leading-[1.1] text-[var(--color-brand-ink)] sm:text-[2.5rem]"
-                style={{ transitionDelay: "60ms" }}
+                className="reveal-on-scroll mx-auto max-w-md font-display text-[2rem] italic leading-[1.1] text-[var(--color-brand-ink)] sm:text-[2.5rem]"
               >
                 They don&apos;t just open the door.
               </p>
