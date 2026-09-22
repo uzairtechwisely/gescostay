@@ -594,61 +594,66 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
             </div>
           </section>
 
-          <section className="border-b border-[var(--color-brand-soft-border)] bg-[var(--color-brand-ink)]">
-            <div
-              className="mx-auto flex max-w-7xl gap-4 overflow-x-auto px-5 py-6 sm:px-6 lg:px-8"
-              style={{ scrollbarWidth: "none" }}
-            >
-              {(campaign.seasonMoments ?? []).map((moment) => (
-                <div
-                  key={moment.label}
-                  className="flex min-w-[15.5rem] flex-[0_0_15.5rem] items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4"
-                >
-                  <span className="mt-0.5 rounded-full bg-[var(--color-brand-accent)] px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-white">
-                    {moment.label}
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold leading-snug text-white">
+          <section className="overflow-hidden border-b border-white/10 bg-[var(--color-brand-ink)] py-4">
+            <div className="marquee-track" aria-hidden="true">
+              {[0, 1].map((repeat) => (
+                <div key={repeat} className="flex items-center">
+                  {(campaign.seasonMoments ?? []).map((moment) => (
+                    <span
+                      key={`${repeat}-${moment.label}`}
+                      className="mx-4 flex items-center gap-3 whitespace-nowrap text-lg text-white/85 sm:text-xl"
+                    >
+                      <span className="font-display italic text-[var(--color-brand-accent)]">
+                        {moment.label}
+                      </span>
                       {moment.title}
-                    </p>
-                  </div>
+                      <span className="text-white/25">&#10022;</span>
+                    </span>
+                  ))}
                 </div>
               ))}
             </div>
+            <p className="sr-only">
+              {(campaign.seasonMoments ?? [])
+                .map((moment) => `${moment.label}: ${moment.title}`)
+                .join(". ")}
+            </p>
           </section>
 
           <section className="border-b border-[var(--color-brand-soft-border)] bg-white">
-            <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8 lg:py-16">
-              <div
-                data-reveal
-                className="reveal-on-scroll mb-9 max-w-xl"
-              >
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent)]">
-                  Why Gesco Stay
-                </p>
-                <h2 className="mt-3 text-[2rem] font-bold leading-[1.04] tracking-[-0.02em] text-[var(--color-brand-ink)] sm:text-[2.5rem]">
-                  The spirit of African hospitality.
-                </h2>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {usps.map((usp, index) => (
-                  <article
-                    key={usp.title}
-                    data-reveal
-                    className="reveal-on-scroll rounded-[1.5rem] border border-[var(--color-brand-soft-border)] bg-[var(--color-brand-bg)] p-5"
-                    style={{ transitionDelay: `${60 + index * 70}ms` }}
-                  >
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-brand-accent-soft)] text-sm font-bold text-[var(--color-brand-accent)]">
-                      0{index + 1}
-                    </span>
-                    <h3 className="mt-4 text-base font-semibold leading-snug text-[var(--color-brand-ink)]">
-                      {usp.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-[var(--color-brand-muted)]">
-                      {usp.body}
-                    </p>
-                  </article>
-                ))}
+            <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
+              <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+                <div data-reveal className="reveal-on-scroll">
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent)]">
+                    Why Gesco Stay
+                  </p>
+                  <p className="mt-5 font-display text-[2.1rem] italic leading-[1.14] text-[var(--color-brand-ink)] sm:text-[2.6rem]">
+                    &ldquo;Built in Africa, for Africa &mdash; every stay
+                    keeps a little more of the trip at home.&rdquo;
+                  </p>
+                </div>
+                <div className="divide-y divide-[var(--color-brand-soft-border)]">
+                  {usps.map((usp, index) => (
+                    <article
+                      key={usp.title}
+                      data-reveal
+                      className="reveal-on-scroll flex gap-5 py-5 first:pt-0 last:pb-0"
+                      style={{ transitionDelay: `${60 + index * 70}ms` }}
+                    >
+                      <span className="font-display text-2xl italic text-[var(--color-brand-accent)]">
+                        0{index + 1}
+                      </span>
+                      <div>
+                        <h3 className="text-base font-semibold leading-snug text-[var(--color-brand-ink)]">
+                          {usp.title}
+                        </h3>
+                        <p className="mt-1.5 text-sm leading-6 text-[var(--color-brand-muted)]">
+                          {usp.body}
+                        </p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -657,15 +662,15 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
             id="properties"
             className="relative overflow-hidden border-b border-[var(--color-brand-soft-border)] bg-[var(--color-brand-bg)]"
           >
-            <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8 lg:py-16">
+            <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                <div data-reveal className="reveal-on-scroll">
+                <div data-reveal className="reveal-on-scroll max-w-lg">
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent)]">
-                    Featured stays
+                    A few we&apos;d send our friends to
                   </p>
-                  <h2 className="mt-3 max-w-lg text-[2rem] font-bold leading-[1.02] tracking-[-0.02em] text-[var(--color-brand-ink)] sm:text-[2.5rem]">
-                    Hidden gems, ready to book.
-                  </h2>
+                  <p className="mt-3 font-display text-[2rem] italic leading-[1.05] text-[var(--color-brand-ink)] sm:text-[2.5rem]">
+                    Every stay tells a story.
+                  </p>
                 </div>
                 <div
                   data-reveal
@@ -674,7 +679,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
                   <button
                     type="button"
                     onClick={() => scrollRail(propertyRailRef.current, "left", prefersReducedMotion)}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-brand-soft-border)] bg-white text-lg transition hover:border-[var(--color-brand-accent)]"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-brand-ink)] text-lg transition hover:bg-[var(--color-brand-ink)] hover:text-white"
                     aria-label="Scroll properties left"
                   >
                     &larr;
@@ -682,7 +687,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
                   <button
                     type="button"
                     onClick={() => scrollRail(propertyRailRef.current, "right", prefersReducedMotion)}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-brand-soft-border)] bg-white text-lg transition hover:border-[var(--color-brand-accent)]"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-brand-ink)] text-lg transition hover:bg-[var(--color-brand-ink)] hover:text-white"
                     aria-label="Scroll properties right"
                   >
                     &rarr;
@@ -692,7 +697,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
 
               <div
                 ref={propertyRailRef}
-                className="property-rail mt-8 flex gap-5 overflow-x-auto pb-4"
+                className="property-rail mt-10 flex gap-8 overflow-x-auto pb-4"
                 tabIndex={0}
                 aria-label="Featured Lagos stays"
               >
@@ -708,40 +713,34 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
                       openPropertyModal(property);
                     }}
                     data-reveal
-                    className="reveal-on-scroll group relative min-w-[16.5rem] flex-[0_0_16.5rem] overflow-hidden rounded-[1.6rem] border border-[var(--color-brand-soft-border)] bg-white text-left shadow-[var(--shadow-card)] transition hover:-translate-y-1 sm:min-w-[19rem] sm:flex-[0_0_19rem]"
+                    className="reveal-on-scroll group min-w-[15.5rem] flex-[0_0_15.5rem] text-left sm:min-w-[17.5rem] sm:flex-[0_0_17.5rem]"
                     style={{ transitionDelay: `${100 + index * 60}ms` }}
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden">
+                    <div className="relative aspect-[3/4] overflow-hidden rounded-t-[0.5rem]">
                       <Image
                         src={property.image}
                         alt={property.title}
                         fill
-                        sizes="(max-width: 640px) 72vw, 19rem"
+                        sizes="(max-width: 640px) 68vw, 17.5rem"
                         className="object-cover transition duration-700 group-hover:scale-[1.04]"
                       />
-                      <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[var(--color-brand-ink)]">
-                        Featured
-                      </span>
                     </div>
-                    <div className="p-4">
+                    <div className="border-x border-b border-[var(--color-brand-soft-border)] bg-white px-4 py-3.5">
                       {property.area ? (
-                        <p className="text-xs font-medium uppercase tracking-[0.1em] text-[var(--color-brand-muted)]">
+                        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-[var(--color-brand-accent)]">
                           {property.area}
                         </p>
                       ) : null}
-                      <h3 className="mt-1.5 text-base font-semibold leading-snug text-[var(--color-brand-ink)]">
+                      <h3 className="mt-1 font-display text-lg italic leading-snug text-[var(--color-brand-ink)]">
                         {property.title}
                       </h3>
                       {property.priceFrom ? (
-                        <p className="mt-2 text-sm text-[var(--color-brand-ink)]">
+                        <p className="mt-1.5 text-sm text-[var(--color-brand-muted)]">
                           from{" "}
-                          <span className="font-bold">
+                          <span className="font-semibold text-[var(--color-brand-ink)]">
                             {property.priceFrom}
-                          </span>
-                          <span className="text-[var(--color-brand-muted)]">
-                            {" "}
-                            /night
-                          </span>
+                          </span>{" "}
+                          / night
                         </p>
                       ) : null}
                     </div>
@@ -751,50 +750,61 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
             </div>
           </section>
 
-          <section className="border-b border-[var(--color-brand-soft-border)] bg-white">
-            <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8 lg:py-16">
-              <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
-                <div data-reveal className="reveal-on-scroll">
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent)]">
-                    Meet our hosts
-                  </p>
-                  <h2 className="mt-3 max-w-sm text-[2rem] font-bold leading-[1.02] tracking-[-0.02em] text-[var(--color-brand-ink)] sm:text-[2.5rem]">
-                    The people behind the welcome.
-                  </h2>
-                </div>
-                <div className="grid gap-4 sm:grid-cols-3">
-                  {(campaign.hostProfiles ?? []).map((host, index) => (
-                    <HostCard key={host.name} host={host} index={index} />
-                  ))}
-                </div>
+          <section className="overflow-hidden border-b border-[var(--color-brand-soft-border)] bg-white">
+            <div className="mx-auto max-w-6xl px-5 py-16 text-center sm:px-6 lg:px-8 lg:py-24">
+              <p
+                data-reveal
+                className="reveal-on-scroll text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent)]"
+              >
+                The people behind the welcome
+              </p>
+              <p
+                data-reveal
+                className="reveal-on-scroll mx-auto mt-3 max-w-md font-display text-[2rem] italic leading-[1.1] text-[var(--color-brand-ink)] sm:text-[2.5rem]"
+                style={{ transitionDelay: "60ms" }}
+              >
+                Real hosts. Real warmth.
+              </p>
+              <div className="mt-12 flex flex-wrap items-start justify-center gap-x-6 gap-y-10 sm:gap-x-10">
+                {(campaign.hostProfiles ?? []).map((host, index) => (
+                  <HostPolaroid key={host.name} host={host} index={index} />
+                ))}
               </div>
             </div>
           </section>
 
-          <section className="border-b border-[var(--color-brand-soft-border)] bg-[var(--color-brand-bg)]">
-            <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:px-8 lg:py-16">
-              <div className="grid gap-5 lg:grid-cols-2">
-                <ActionPathCard
-                  dataReveal
-                  title="Want a personal tour?"
-                  body="We will guide you over a phone or video call and help you narrow down the right Lagos area or stay type."
-                  actionLabel="Talk to Us"
-                  tone="dark"
-                  onClick={openTourModal}
-                />
-                <ActionPathCard
-                  dataReveal
-                  title="Prefer to browse and book yourself?"
-                  body="Go straight into the live Gesco Stay experience with your campaign context still attached."
-                  actionLabel="Browse and Book"
-                  tone="light"
+          <section className="dot-field bg-[var(--color-brand-ink)]">
+            <div className="mx-auto max-w-3xl px-5 py-20 text-center sm:px-6 lg:px-8 lg:py-28">
+              <p
+                data-reveal
+                className="reveal-on-scroll font-display text-[2.4rem] italic leading-[1.08] text-white sm:text-[3.4rem]"
+              >
+                Ready to find your Lagos stay?
+              </p>
+              <div
+                data-reveal
+                className="reveal-on-scroll mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row"
+                style={{ transitionDelay: "80ms" }}
+              >
+                <button
+                  type="button"
                   onClick={() => {
                     trackEvent("lagos_browse_and_book_click", {
                       campaign_id: campaign.campaignId,
                     });
                     window.location.assign(getBrowseUrl());
                   }}
-                />
+                  className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--color-brand-accent)] px-8 text-sm font-semibold text-white transition hover:bg-[var(--color-brand-accent-strong)]"
+                >
+                  Browse and Book
+                </button>
+                <button
+                  type="button"
+                  onClick={openTourModal}
+                  className="text-sm font-semibold text-white underline decoration-white/40 underline-offset-4 transition hover:decoration-white"
+                >
+                  or talk to us first &rarr;
+                </button>
               </div>
             </div>
           </section>
@@ -932,7 +942,9 @@ function GescoMark({ size = 36 }: { size?: number }) {
   );
 }
 
-function HostCard({
+const polaroidRotations = ["-rotate-3", "rotate-2", "-rotate-2", "rotate-3"];
+
+function HostPolaroid({
   host,
   index,
 }: {
@@ -942,83 +954,26 @@ function HostCard({
   return (
     <article
       data-reveal
-      className="reveal-on-scroll overflow-hidden rounded-[2rem] border border-[var(--color-brand-soft-border)] bg-white shadow-[var(--shadow-card)]"
+      className={`polaroid reveal-on-scroll w-40 shrink-0 transition hover:-translate-y-1 hover:rotate-0 sm:w-48 ${
+        polaroidRotations[index % polaroidRotations.length]
+      }`}
       style={{ transitionDelay: `${100 + index * 90}ms` }}
     >
-      <div className="relative aspect-[4/5] overflow-hidden">
+      <div className="relative aspect-square overflow-hidden">
         <Image
           src={host.image}
           alt={`${host.name}, Gesco Stay host`}
           fill
-          sizes="(max-width: 768px) 80vw, 24vw"
+          sizes="(max-width: 768px) 40vw, 12vw"
           className="object-cover"
         />
       </div>
-      <div className="p-5">
-        <h3 className="text-2xl tracking-[-0.03em] text-[var(--color-brand-ink)]">
-          {host.name}
-        </h3>
-        <p className="mt-3 text-sm leading-7 text-[var(--color-brand-muted)]">
-          {host.description}
-        </p>
-      </div>
-    </article>
-  );
-}
-
-function ActionPathCard({
-  title,
-  body,
-  actionLabel,
-  tone,
-  onClick,
-  dataReveal = false,
-}: {
-  title: string;
-  body: string;
-  actionLabel: string;
-  tone: "dark" | "light";
-  onClick: () => void;
-  dataReveal?: boolean;
-}) {
-  const className =
-    tone === "dark"
-      ? "border-[var(--color-brand-ink)] bg-[var(--color-brand-ink)] text-white"
-      : "border-[var(--color-brand-soft-border)] bg-[var(--color-brand-bg)] text-[var(--color-brand-ink)]";
-
-  return (
-    <article
-      data-reveal={dataReveal || undefined}
-      className={`reveal-on-scroll rounded-[2.2rem] border p-7 sm:p-9 ${className}`}
-    >
-      <p
-        className={`text-sm font-medium ${
-          tone === "dark" ? "text-white/62" : "text-[var(--color-brand-muted)]"
-        }`}
-      >
-        Choose your route
+      <p className="mt-3 text-center font-display text-lg italic text-[var(--color-brand-ink)]">
+        {host.name}
       </p>
-      <h2 className="mt-4 text-[2.15rem] leading-tight tracking-[-0.04em] sm:text-[2.7rem]">
-        {title}
-      </h2>
-      <p
-        className={`mt-4 max-w-xl text-base leading-8 ${
-          tone === "dark" ? "text-white/72" : "text-[var(--color-brand-muted)]"
-        }`}
-      >
-        {body}
+      <p className="mt-1 text-center text-xs leading-5 text-[var(--color-brand-muted)]">
+        {host.description}
       </p>
-      <button
-        type="button"
-        onClick={onClick}
-        className={`mt-8 inline-flex min-h-12 items-center justify-center rounded-full px-6 text-sm font-semibold transition ${
-          tone === "dark"
-            ? "bg-[var(--color-brand-accent)] text-white hover:bg-[var(--color-brand-accent-strong)]"
-            : "border border-[var(--color-brand-soft-border)] bg-white text-[var(--color-brand-ink)] hover:border-[var(--color-brand-accent)] hover:bg-[var(--color-brand-accent-soft)]"
-        }`}
-      >
-        {actionLabel}
-      </button>
     </article>
   );
 }
