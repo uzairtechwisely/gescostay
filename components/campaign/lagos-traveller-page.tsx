@@ -825,7 +825,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
 
         {modal ? (
           <div
-            className="fixed inset-0 z-50 flex items-end justify-center bg-[rgba(10,14,18,0.58)] p-4 sm:items-center"
+            className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-[rgba(10,14,18,0.58)] px-4 py-8 sm:items-center"
             onClick={() => setModal(null)}
           >
             <div
@@ -837,10 +837,10 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
                   ? "Property availability dialog"
                   : "Personal tour request dialog"
               }
-              className="w-full max-w-2xl rounded-[2rem] bg-white p-6 shadow-[0_40px_120px_rgba(10,14,18,0.3)] sm:p-8"
+              className="my-auto w-full max-w-2xl rounded-[2rem] bg-white p-6 shadow-[0_40px_120px_rgba(10,14,18,0.3)] sm:p-8"
               onClick={(event) => event.stopPropagation()}
             >
-              <div className="flex justify-end">
+              <div className="sticky -top-6 z-10 -mx-6 -mt-6 flex justify-end rounded-t-[2rem] bg-white px-6 pt-6 pb-2 sm:-top-8 sm:-mx-8 sm:-mt-8 sm:px-8 sm:pt-8">
                 <button
                   type="button"
                   onClick={() => setModal(null)}
