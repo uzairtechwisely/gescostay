@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import { NextResponse } from "next/server";
 
 import { campaigns } from "@/lib/campaigns";
+import { sendLeadEmails } from "@/lib/email";
 import type { LeadSubmissionPayload } from "@/lib/lead";
 import { validateLeadForm } from "@/lib/lead";
 
@@ -75,6 +76,22 @@ export async function POST(request: Request) {
     createdAt: new Date().toISOString(),
   };
 
+  const summaryLines = campaign.leadFormFields.map((field) => {
+    const value = body.formData[field.key]?.trim();
+    return `<strong>${field.label}:</strong> ${value || "—"}`;
+  });
+
+  const emailInput = {
+    referenceId,
+    campaignName: campaign.campaignName,
+    audienceType: campaign.audienceType,
+    country: campaign.country,
+    city: campaign.city,
+    contactName: body.formData.firstName?.trim(),
+    contactEmail: body.formData.email?.trim(),
+    summaryLines,
+  };
+
   if (!webhookUrl) {
     if (process.env.NODE_ENV === "production") {
       return NextResponse.json(
@@ -87,6 +104,7 @@ export async function POST(request: Request) {
     }
 
     console.log("Lead captured in development mode", submission);
+    await sendLeadEmails(emailInput);
 
     return NextResponse.json({
       ok: true,
@@ -113,6 +131,8 @@ export async function POST(request: Request) {
       { status: 502 },
     );
   }
+
+  await sendLeadEmails(emailInput);
 
   return NextResponse.json({
     ok: true,

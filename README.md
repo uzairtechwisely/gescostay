@@ -62,10 +62,23 @@ Or add entries to `/etc/hosts` (`127.0.0.1 lagos-hosts.localhost lagos-travel.lo
 
 ## Lead handling
 
-The human-help form posts to `/api/lead`.
+There are two capture paths:
 
-- In local development, submissions are logged on the server so the flow can be tested without losing data silently.
-- In production, `LEAD_WEBHOOK_URL` must be set or the endpoint returns a clear configuration error.
+- The host page's human-help form posts to `/api/lead`, which forwards the submission to `LEAD_WEBHOOK_URL` (Zapier, Make, a CRM, etc.).
+- The Lagos traveller page's "Help Me Book" and "Talk to Us" modals post to `/api/inquiries`, which writes directly to a Postgres table (`@vercel/postgres`).
+
+In local development, submissions are logged on the server instead so the flow can be tested without external services configured. In production, each path requires its own configuration (`LEAD_WEBHOOK_URL`, or a `POSTGRES_URL`) or the endpoint returns a clear configuration error.
+
+### Email confirmation
+
+Both paths also send email via [Resend](https://resend.com) — a confirmation to the person who submitted (when their email is available) and a notification to `LEAD_NOTIFICATION_EMAIL`. This is skipped (not an error) if `RESEND_API_KEY` is unset.
+
+To set it up:
+
+1. Create a free account at [resend.com](https://resend.com) and generate an API key.
+2. Set `RESEND_API_KEY` in your environment.
+3. Set `LEAD_NOTIFICATION_EMAIL` to the inbox that should receive lead notifications.
+4. **Sandbox limitation:** until a domain is verified on Resend, the default sender (`onboarding@resend.dev`) can only deliver to the email address the Resend account was created with — confirmation emails to real leads won't arrive. To send to real travellers/hosts, verify `gescostay.com` (or a subdomain) in Resend's dashboard, then set `EMAIL_FROM` to an address on that domain, e.g. `GescoStay <leads@gescostay.com>`.
 
 ## Analytics
 
@@ -89,6 +102,7 @@ Campaign and UTM context are attached where available.
    - `NEXT_PUBLIC_SITE_URL`
    - `NEXT_PUBLIC_GA_ID`
    - `LEAD_WEBHOOK_URL`
+   - `RESEND_API_KEY`, `LEAD_NOTIFICATION_EMAIL`, `EMAIL_FROM` (see [Email confirmation](#email-confirmation))
 4. Trigger a production deploy from the Vercel dashboard or by pushing to the connected branch.
 
 ## Validation

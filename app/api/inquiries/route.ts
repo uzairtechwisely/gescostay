@@ -4,6 +4,7 @@ import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
 import { campaigns } from "@/lib/campaigns";
+import { sendLeadEmails } from "@/lib/email";
 import { isInquiryPayload, validateInquiry } from "@/lib/inquiries";
 
 const hasDatabaseUrl = Boolean(
@@ -63,6 +64,25 @@ export async function POST(request: Request) {
   const referenceId = `GS-${randomUUID().slice(0, 8).toUpperCase()}`;
   const recordId = randomUUID();
 
+  const emailInput = {
+    referenceId,
+    campaignName: campaign.campaignName,
+    audienceType: campaign.audienceType,
+    country: campaign.country,
+    city: campaign.city,
+    contactName: body.name.trim(),
+    contactEmail: body.email.trim(),
+    summaryLines: [
+      `<strong>Source:</strong> ${body.source}`,
+      `<strong>Phone:</strong> ${body.phone.trim()}`,
+      body.propertyReference
+        ? `<strong>Property:</strong> ${body.propertyReference}`
+        : null,
+      body.partySize ? `<strong>Party size:</strong> ${body.partySize}` : null,
+      `<strong>Message:</strong> ${body.message.trim()}`,
+    ].filter((line): line is string => Boolean(line)),
+  };
+
   if (!hasDatabaseUrl) {
     if (process.env.NODE_ENV === "production") {
       return NextResponse.json(
@@ -79,6 +99,7 @@ export async function POST(request: Request) {
       referenceId,
       ...body,
     });
+    await sendLeadEmails(emailInput);
 
     return NextResponse.json({
       ok: true,
@@ -134,6 +155,8 @@ export async function POST(request: Request) {
       { status: 502 },
     );
   }
+
+  await sendLeadEmails(emailInput);
 
   return NextResponse.json({
     ok: true,
