@@ -1,0 +1,32 @@
+# Block heavy dependencies and build outputs from the context loop
+node_modules/
+.next/
+dist/
+build/
+.git/
+*.log
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Generated / cache artifacts — never hand-edited, safe to skip
+next-env.d.ts
+*.tsbuildinfo
+.vercel/
+.turbo/
+.cache/
+coverage/
+.DS_Store
+*.map
+
+# Local secrets — never read into context, only .env.example is
+.env
+.env.local
+.env.*.local
+
+# Unused Next.js starter assets, not part of the Gesco Stay brand
+public/file.svg
+public/globe.svg
+public/next.svg
+public/vercel.svg
+public/window.svg

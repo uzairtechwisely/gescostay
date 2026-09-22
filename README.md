@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Gesco Stay Campaign Landing Pages
 
-## Getting Started
+This project is a reusable landing-page system for Gesco Stay paid social campaigns.
 
-First, run the development server:
+It includes:
+
+- a data-driven campaign model
+- reusable host and traveller landing page sections
+- tracked CTA handoff into the live Gesco Stay product
+- a human-help lead form flow
+- a server endpoint ready for webhook-based lead routing
+
+## Local development
+
+1. Install dependencies.
+
+```bash
+npm install
+```
+
+2. Create a local environment file from `.env.example`.
+
+3. Start the development server.
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Campaign routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Each Lagos audience is a dedicated subdomain, resolved by [`proxy.ts`](./proxy.ts) rewriting the request to a fixed internal page:
 
-## Learn More
+- `lagos-hosts.gescostay.com` → `/lp/lagos/hosts` — property owner acquisition
+- `lagos-travel.gescostay.com` → `/lp/lagos/travellers` — Lagos Sept–Dec traveller story
 
-To learn more about Next.js, take a look at the following resources:
+The original path-based routes still work for internal QA/staging without needing a subdomain:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/campaigns/nigeria/lagos/host-september-2026`
+- `/campaigns/nigeria/lagos/traveller-q4-2026`
+- `/campaigns/ghana/accra/traveller-september-2026` (draft, paused — Ghana campaigns are on hold while the Lagos push runs)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Add future pages by updating [`lib/campaigns.ts`](./lib/campaigns.ts) with new campaign entries and media prompts, then add a matching subdomain mapping in `proxy.ts` and a fixed page under `app/lp/...`.
 
-## Deploy on Vercel
+### Testing subdomains locally
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Wildcard DNS for `*.gescostay.com` is not set up yet, so simulate the subdomain with a `Host` header:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+curl -H "Host: lagos-hosts.localhost:3000" http://localhost:3000/
+curl -H "Host: lagos-travel.localhost:3000" http://localhost:3000/
+```
+
+Or add entries to `/etc/hosts` (`127.0.0.1 lagos-hosts.localhost lagos-travel.localhost`) and open `http://lagos-hosts.localhost:3000` in a browser.
+
+### DNS and Vercel setup (manual, required before going live)
+
+1. In Vercel project settings → Domains, add `lagos-hosts.gescostay.com` and `lagos-travel.gescostay.com` (or a wildcard `*.gescostay.com` if more subdomains are planned).
+2. In your DNS provider, add a `CNAME` record for each subdomain pointing to `cname.vercel-dns.com` (or the target Vercel gives you), or one wildcard `CNAME` for `*.gescostay.com`.
+3. Wait for DNS propagation and Vercel to issue SSL certificates for each domain.
+
+## Lead handling
+
+The human-help form posts to `/api/lead`.
+
+- In local development, submissions are logged on the server so the flow can be tested without losing data silently.
+- In production, `LEAD_WEBHOOK_URL` must be set or the endpoint returns a clear configuration error.
+
+## Analytics
+
+The app uses a Google Analytics style `gtag` setup and sends campaign events such as:
+
+- `landing_page_view`
+- `human_help_click`
+- `lead_form_submit`
+- `host_registration_click`
+- `traveller_registration_click`
+- `phone_click`
+- `whatsapp_click`
+
+Campaign and UTM context are attached where available.
+
+## GitHub and Vercel deployment
+
+1. Create a GitHub repository and push this project.
+2. Import the repository into Vercel.
+3. Add these environment variables in Vercel project settings:
+   - `NEXT_PUBLIC_SITE_URL`
+   - `NEXT_PUBLIC_GA_ID`
+   - `LEAD_WEBHOOK_URL`
+4. Trigger a production deploy from the Vercel dashboard or by pushing to the connected branch.
+
+## Validation
+
+Run checks before pushing:
+
+```bash
+npm run lint
+npm run build
+```
