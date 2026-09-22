@@ -455,20 +455,20 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
   const usps = useMemo(
     () => [
       {
-        title: "Hosts paid fairly, and fast",
-        body: "Local African hosts get paid quickly and fairly, so more of every booking supports the local economy.",
+        title: "Vetted for warmth, not wifi",
+        body: "Every host passes a real hospitality check rooted in African warmth — not a generic star rating.",
       },
       {
-        title: "Real African hospitality, checked",
-        body: "Every host is reviewed against real African warmth and hospitality criteria — not just a star rating.",
+        title: "Checked before you see it",
+        body: "Every home is inspected in person before it goes live, so what's on the page is what's at the door.",
       },
       {
-        title: "Properties verified before listing",
-        body: "Each stay is thoroughly checked before it goes live, so what you see is what you get.",
+        title: "Hosts paid in days, not months",
+        body: "Fast, fair payouts mean your booking reaches the person who welcomed you, quickly.",
       },
       {
-        title: "Built in Africa, for Africa",
-        body: "Gesco Stay is made by and for the continent — booking, hosting, and support that understands the market.",
+        title: "Built in Africa, for this",
+        body: "Made by a team that understands the market, the travellers, and the hosts — because we're from here too.",
       },
     ],
     [],
@@ -497,7 +497,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
                 onClick={() => scrollToSection("properties")}
                 className="hidden min-h-10 items-center justify-center rounded-full border border-[var(--color-brand-soft-border)] bg-white px-4 text-sm font-semibold text-[var(--color-brand-ink)] transition hover:border-[var(--color-brand-accent)] sm:inline-flex"
               >
-                Explore Stays
+                Find My Stay
               </button>
               <button
                 type="button"
@@ -551,20 +551,24 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
                 </p>
                 <h1
                   data-reveal
-                  className="reveal-on-scroll mt-5 max-w-2xl text-[3.2rem] font-extrabold leading-[0.96] tracking-[-0.03em] sm:text-[4.75rem] lg:text-[5.75rem]"
+                  className="reveal-on-scroll mt-5 max-w-2xl text-[2.9rem] font-extrabold leading-[0.98] tracking-[-0.03em] sm:text-[4.4rem] lg:text-[5.25rem]"
                 >
-                  Did <span className="text-[var(--color-brand-accent)]">Lagos</span>
+                  Stay like you know
                   <br />
-                  miss you?
+                  somebody in{" "}
+                  <span className="text-[var(--color-brand-accent)]">
+                    Lagos
+                  </span>
+                  .
                 </h1>
                 <p
                   data-reveal
                   className="reveal-on-scroll mt-6 max-w-xl text-lg leading-8 text-white/82 sm:text-xl"
                   style={{ transitionDelay: "100ms" }}
                 >
-                  Book with Gesco Stay for exclusive stays curated by local
-                  hosts &mdash; from hidden gems to the city&apos;s most loved
-                  homes.
+                  Every host is vetted for real hospitality. Every home is
+                  checked before it&apos;s listed. Book a stay that already
+                  feels like yours.
                 </p>
                 <div
                   data-reveal
@@ -581,7 +585,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
                     }}
                     className="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--color-brand-accent)] px-7 text-sm font-semibold text-white transition hover:bg-[var(--color-brand-accent-strong)]"
                   >
-                    Explore Stays
+                    Find My Stay
                   </button>
                   <button
                     type="button"
@@ -631,11 +635,12 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
                   className="reveal-on-scroll lg:sticky lg:top-32 lg:self-start"
                 >
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent)]">
-                    Why Gesco Stay
+                    Why it feels different
                   </p>
                   <p className="mt-5 font-display text-[2.1rem] italic leading-[1.14] text-[var(--color-brand-ink)] sm:text-[2.6rem]">
-                    &ldquo;Built in Africa, for Africa &mdash; every stay
-                    keeps a little more of the trip at home.&rdquo;
+                    &ldquo;We didn&apos;t build another listings site. We
+                    built a way to land in Lagos and already feel
+                    expected.&rdquo;
                   </p>
                 </div>
                 <div className="divide-y divide-[var(--color-brand-soft-border)]">
@@ -669,10 +674,10 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
               <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div data-reveal className="reveal-on-scroll max-w-lg">
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent)]">
-                    A few we&apos;d send our friends to
+                    No algorithm picked these
                   </p>
                   <p className="mt-3 font-display text-[2rem] italic leading-[1.05] text-[var(--color-brand-ink)] sm:text-[2.5rem]">
-                    Every stay tells a story.
+                    Homes worth flying for.
                   </p>
                 </div>
                 <div
@@ -759,14 +764,14 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
                 data-reveal
                 className="reveal-on-scroll text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-brand-accent)]"
               >
-                The people behind the welcome
+                Meet the welcome committee
               </p>
               <p
                 data-reveal
                 className="reveal-on-scroll mx-auto mt-3 max-w-md font-display text-[2rem] italic leading-[1.1] text-[var(--color-brand-ink)] sm:text-[2.5rem]"
                 style={{ transitionDelay: "60ms" }}
               >
-                Real hosts. Real warmth.
+                They don&apos;t just open the door.
               </p>
               <div className="mt-12 flex flex-wrap items-start justify-center gap-x-6 gap-y-10 sm:gap-x-10">
                 {(campaign.hostProfiles ?? []).map((host, index) => (
@@ -782,7 +787,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
                 data-reveal
                 className="reveal-on-scroll font-display text-[2.4rem] italic leading-[1.08] text-white sm:text-[3.4rem]"
               >
-                Ready to find your Lagos stay?
+                Your Lagos welcome is one tap away.
               </p>
               <div
                 data-reveal

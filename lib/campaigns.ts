@@ -355,16 +355,14 @@ export const campaigns: CampaignConfig[] = [
     seasonOrEvent: "September to December 2026",
     platform: "instagram",
     campaignDate: "2026-09-01",
-    adHeadline: "Did Lagos miss you?",
+    adHeadline: "Stay like you know somebody in Lagos.",
     adPrimaryText:
-      "Book with Gesco Stay for exclusive stays curated by local hosts — from hidden gems to the city's most loved homes.",
-    landingPageHeadline: "Did Lagos miss you?",
+      "Every Gesco Stay host is vetted for real hospitality. Every home is checked before it's listed. Book a stay that already feels like yours.",
+    landingPageHeadline: "Stay like you know somebody in Lagos.",
     landingPageSubheadline:
-      "Book with Gesco Stay for exclusive stays curated by local hosts — from hidden gems to the city's most loved homes.",
-    heroImage: createImage(
-      "Lagos Nigeria skyline at golden hour with lagoon water, Victoria Island high-rises, moving city traffic, stylish contemporary editorial travel photography, premium but realistic, mobile-first hero composition",
-      "portrait_16_9",
-    ),
+      "Every host is vetted for real hospitality. Every home is checked before it's listed. Every booking pays a local host, fast.",
+    heroImage:
+      "https://images.unsplash.com/photo-1618828665011-0abd973f7bb8?q=80&w=1800&auto=format&fit=crop",
     supportingImages: [
       createImage(
         "Crowd at live Afrobeat performance in Lagos Nigeria, warm stage lighting, stylish city nightlife, realistic editorial travel photography",
@@ -569,9 +567,9 @@ export const campaigns: CampaignConfig[] = [
     utmCampaign: "lagos-traveller-q4-2026",
     utmContent: "editorial-city-hero",
     slugSegments: ["nigeria", "lagos", "traveller-q4-2026"],
-    metaTitle: "Hidden Gems in Lagos | Gesco Stay",
+    metaTitle: "Stay Like You Know Somebody in Lagos | Gesco Stay",
     metaDescription:
-      "Discover why late-year Lagos feels electric and browse local stays through a crafted Gesco Stay journey.",
+      "Book a vetted, verified stay in Lagos with Gesco Stay — local hosts, checked homes, and a welcome that feels like family.",
     canonicalPath: "https://lagos-travel.gescostay.com/",
     indexable: false,
     designVariant: "apple-lagos-hidden-gems",
@@ -579,72 +577,62 @@ export const campaigns: CampaignConfig[] = [
       {
         reference: "lagos-hidden-gem-vi-loft",
         title: "Skyline Loft on Victoria Island",
-        description: "Quiet interiors. City access. Ideal for couples and solo trips.",
+        description:
+          "Floor-to-ceiling views and a host who checks in without hovering.",
         area: "Victoria Island, Lagos",
         priceFrom: "$74",
-        image: createImage(
-          "Premium short-stay loft apartment in Victoria Island Lagos Nigeria, floor to ceiling windows, warm evening light, refined African hospitality editorial photography, realistic interior, hidden gem travel campaign",
-          "portrait_4_3",
-        ),
+        image:
+          "https://images.unsplash.com/photo-1649769425782-8cdb757da2b4?q=80&w=900&auto=format&fit=crop",
       },
       {
         reference: "lagos-hidden-gem-lekki-courtyard",
         title: "Courtyard Stay in Lekki",
-        description: "A calmer base for beach plans, dinners, and longer weekends.",
+        description:
+          "A quiet terracotta courtyard, five minutes from the beach.",
         area: "Lekki, Lagos",
         priceFrom: "$57",
-        image: createImage(
-          "Elegant boutique apartment courtyard in Lekki Lagos Nigeria, palms, soft stone textures, warm African hospitality, realistic premium travel photography",
-          "portrait_4_3",
-        ),
+        image:
+          "https://images.unsplash.com/photo-1505576391880-b3f9d713dc4f?q=80&w=900&auto=format&fit=crop",
       },
       {
         reference: "lagos-hidden-gem-ikeja-residence",
         title: "Creative Residence in Ikeja",
-        description: "A practical base near the mainland music and culture scene.",
+        description:
+          "Clean lines, good light, close to the mainland music scene.",
         area: "Ikeja, Lagos",
         priceFrom: "$43",
-        image: createImage(
-          "Stylish serviced apartment in Ikeja Lagos Nigeria, artful decor, welcoming host details, realistic travel editorial interior photography",
-          "portrait_4_3",
-        ),
+        image:
+          "https://images.unsplash.com/photo-1708493666755-34fbad47c197?q=80&w=900&auto=format&fit=crop",
       },
       {
         reference: "lagos-hidden-gem-lagoon-suite",
         title: "Lagoon View Suite",
-        description: "For travellers who want a lighter, slower start to a busy city.",
+        description:
+          "Wake up to the lagoon turning gold. Worth the early flight.",
         area: "Lagoon-side, Lagos",
         priceFrom: "$91",
-        image: createImage(
-          "Luxury suite overlooking Lagos lagoon at sunrise, warm natural light, refined hospitality editorial photography, realistic travel campaign image",
-          "portrait_4_3",
-        ),
+        image:
+          "https://images.unsplash.com/photo-1774383138392-d968a7283015?q=80&w=900&auto=format&fit=crop",
       },
     ],
     hostProfiles: [
       {
         name: "Ada",
         description: "Welcomes guests with local food tips and easy city guidance.",
-        image: createImage(
-          "Warm portrait of Lagos female short-stay host in elegant home setting, authentic African hospitality, realistic editorial photography",
-          "square_hd",
-        ),
+        image:
+          "https://images.unsplash.com/photo-1743871698163-a2e470d8eac7?q=80&w=600&auto=format&fit=crop",
       },
       {
         name: "Tunde",
         description: "Knows the mainland rhythm and how to make first-time visitors feel settled.",
-        image: createImage(
-          "Portrait of Lagos male host in stylish apartment entryway, confident and warm, authentic African hospitality editorial photography",
-          "square_hd",
-        ),
+        image:
+          "https://images.unsplash.com/photo-1594492003372-f56819b6e029?q=80&w=600&auto=format&fit=crop",
       },
       {
         name: "Ife",
         description: "Curates stays for guests who want design, calm, and a softer Lagos pace.",
-        image: createImage(
-          "Portrait of elegant Nigerian host in Lagos living room, warm smile, premium but human hospitality photography",
-          "square_hd",
-        ),
+        image:
+          "https://images.unsplash.com/photo-1586171984069-1dbce3573a10?q=80&w=600&auto=format&fit=crop",
       },
     ],
     supportContact: contacts.Nigeria,
