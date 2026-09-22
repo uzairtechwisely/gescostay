@@ -162,11 +162,11 @@ export const campaigns: CampaignConfig[] = [
     platform: "facebook",
     campaignDate: "2026-09-01",
     adHeadline:
-      "Own an apartment in Lagos? Turn your empty nights into bookings with Gesco Stay.",
+      "Own an apartment in Lagos? Turn your empty nights into bookings with GescoStay.",
     adPrimaryText:
-      "Create your host account, add your property, and let travellers find your space on Gesco Stay.",
+      "Create your host account, add your property, and let travellers find your space on GescoStay.",
     landingPageHeadline:
-      "Own a property in Lagos? Put your empty nights to work with Gesco Stay.",
+      "Own a property in Lagos? Put your empty nights to work with GescoStay.",
     landingPageSubheadline:
       "Create your host account, add your property, and get your listing in front of travellers already searching for stays.",
     heroImage: createImage(
@@ -212,7 +212,7 @@ export const campaigns: CampaignConfig[] = [
         label: "Email",
         type: "email",
         placeholder: "you@example.com",
-        helpText: "So we can send your Gesco Stay account and hosting information.",
+        helpText: "So we can send your GescoStay account and hosting information.",
       },
       {
         key: "propertyCountry",
@@ -264,7 +264,7 @@ export const campaigns: CampaignConfig[] = [
       },
     ],
     trustMessages: [
-      "Use the same Gesco Stay platform travellers already browse for short stays.",
+      "Use the same GescoStay platform travellers already browse for short stays.",
       "Choose between creating your listing yourself or getting help from the local team.",
       "Your lead goes to the country team with the campaign and location context attached.",
     ],
@@ -272,7 +272,7 @@ export const campaigns: CampaignConfig[] = [
       {
         title: "Meet active stay seekers",
         description:
-          "Put your property in front of travellers already browsing Gesco Stay for places to stay.",
+          "Put your property in front of travellers already browsing GescoStay for places to stay.",
       },
       {
         title: "Show your space clearly",
@@ -282,13 +282,13 @@ export const campaigns: CampaignConfig[] = [
       {
         title: "Get local support when needed",
         description:
-          "If you want a hand with setup, the Gesco Stay team can guide you through the next step.",
+          "If you want a hand with setup, the GescoStay team can guide you through the next step.",
       },
     ],
-    socialProofLabel: "Designed to feel like the Gesco Stay experience travellers already trust.",
+    socialProofLabel: "Designed to feel like the GescoStay experience travellers already trust.",
     faq: [
       {
-        question: "How do I become a host on Gesco Stay?",
+        question: "How do I become a host on GescoStay?",
         answer:
           "Start by creating your host listing. If you would rather speak to someone first, send your details and the local team can help.",
       },
@@ -306,7 +306,7 @@ export const campaigns: CampaignConfig[] = [
     howItWorks: [
       {
         title: "Create your account",
-        description: "Start with the live Gesco Stay listing flow.",
+        description: "Start with the live GescoStay listing flow.",
       },
       {
         title: "Add your property",
@@ -326,7 +326,7 @@ export const campaigns: CampaignConfig[] = [
       "Our Lagos team can help you understand what you need before you create the listing.",
     finalCtaTitle: "Ready to list your property?",
     finalCtaBody:
-      "Go straight into the Gesco Stay listing flow or ask the team to call you back.",
+      "Go straight into the GescoStay listing flow or ask the team to call you back.",
     language: "en",
     trackingCampaignName: "paid_social_lagos_host_sep_2026",
     utmSource: "facebook",
@@ -334,9 +334,9 @@ export const campaigns: CampaignConfig[] = [
     utmCampaign: "lagos-host-september-2026",
     utmContent: "hero-static",
     slugSegments: ["nigeria", "lagos", "host-september-2026"],
-    metaTitle: "List Your Lagos Property | Gesco Stay Campaign",
+    metaTitle: "List Your Lagos Property | GescoStay Campaign",
     metaDescription:
-      "Create your Gesco Stay host listing for Lagos or ask the local team for help with your next step.",
+      "Create your GescoStay host listing for Lagos or ask the local team for help with your next step.",
     canonicalPath: "https://lagos-hosts.gescostay.com/",
     indexable: false,
     supportContact: contacts.Nigeria,
@@ -357,7 +357,7 @@ export const campaigns: CampaignConfig[] = [
     campaignDate: "2026-09-01",
     adHeadline: "Stay like you know somebody in Lagos.",
     adPrimaryText:
-      "Every Gesco Stay host is vetted for real hospitality. Every home is checked before it's listed. Book a stay that already feels like yours.",
+      "Every GescoStay host is vetted for real hospitality. Every home is checked before it's listed. Book a stay that already feels like yours.",
     landingPageHeadline: "Stay like you know somebody in Lagos.",
     landingPageSubheadline:
       "Every host is vetted for real hospitality. Every home is checked before it's listed. Every booking pays a local host, fast.",
@@ -437,7 +437,7 @@ export const campaigns: CampaignConfig[] = [
       },
     ],
     trustMessages: [
-      "Browse homes and hotels in Lagos through the live Gesco Stay journey.",
+      "Browse homes and hotels in Lagos through the live GescoStay journey.",
       "Ask for local help if you want guidance on areas, timing, or the kind of trip you are planning.",
       "Keep your campaign context attached when you continue into the main search flow.",
     ],
@@ -455,7 +455,7 @@ export const campaigns: CampaignConfig[] = [
       {
         title: "A practical route into booking",
         description:
-          "Read the city story first, then move straight into live Gesco Stay listings without losing the option to ask for help.",
+          "Read the city story first, then move straight into live GescoStay listings without losing the option to ask for help.",
       },
     ],
     bookingReasons: [
@@ -522,7 +522,7 @@ export const campaigns: CampaignConfig[] = [
       },
     ],
     socialProofLabel:
-      "Gesco Stay gives you a clearer route from Lagos inspiration to an actual stay search, with local human help still available if you want it.",
+      "GescoStay gives you a clearer route from Lagos inspiration to an actual stay search, with local human help still available if you want it.",
     faq: [
       {
         question: "Why visit Lagos later in the year?",
@@ -547,7 +547,7 @@ export const campaigns: CampaignConfig[] = [
       },
       {
         title: "Browse live stays",
-        description: "Continue into Gesco Stay listings and compare the options that fit your plan.",
+        description: "Continue into GescoStay listings and compare the options that fit your plan.",
       },
       {
         title: "Ask for help if needed",
@@ -559,7 +559,7 @@ export const campaigns: CampaignConfig[] = [
       "Tell us what kind of trip you want, when you are planning to come, and how you would like us to reach you. We will help you narrow the search.",
     finalCtaTitle: "Ready to choose your Lagos base?",
     finalCtaBody:
-      "Browse Lagos stays on Gesco Stay now, or ask the local team to help you decide where and when to book.",
+      "Browse Lagos stays on GescoStay now, or ask the local team to help you decide where and when to book.",
     language: "en",
     trackingCampaignName: "paid_social_lagos_traveller_q4_2026",
     utmSource: "instagram",
@@ -567,9 +567,9 @@ export const campaigns: CampaignConfig[] = [
     utmCampaign: "lagos-traveller-q4-2026",
     utmContent: "editorial-city-hero",
     slugSegments: ["nigeria", "lagos", "traveller-q4-2026"],
-    metaTitle: "Stay Like You Know Somebody in Lagos | Gesco Stay",
+    metaTitle: "Stay Like You Know Somebody in Lagos | GescoStay",
     metaDescription:
-      "Book a vetted, verified stay in Lagos with Gesco Stay — local hosts, checked homes, and a welcome that feels like family.",
+      "Book a vetted, verified stay in Lagos with GescoStay — local hosts, checked homes, and a welcome that feels like family.",
     canonicalPath: "https://lagos-travel.gescostay.com/",
     indexable: false,
     designVariant: "apple-lagos-hidden-gems",
@@ -650,11 +650,11 @@ export const campaigns: CampaignConfig[] = [
     seasonOrEvent: "September 2026",
     platform: "instagram",
     campaignDate: "2026-09-01",
-    adHeadline: "Heading to Accra? Find a stay that fits your trip on Gesco Stay.",
+    adHeadline: "Heading to Accra? Find a stay that fits your trip on GescoStay.",
     adPrimaryText:
       "Browse homes and hotels in Accra, or ask our local team to help you get started.",
     landingPageHeadline:
-      "Going to Accra? Find a stay that fits your trip on Gesco Stay.",
+      "Going to Accra? Find a stay that fits your trip on GescoStay.",
     landingPageSubheadline:
       "Browse available stays in Accra yourself or ask the local team to help you narrow things down.",
     heroImage: createImage(
@@ -731,7 +731,7 @@ export const campaigns: CampaignConfig[] = [
       },
     ],
     trustMessages: [
-      "You can continue straight into live Gesco Stay listings from this page.",
+      "You can continue straight into live GescoStay listings from this page.",
       "Need help first? The local team can guide you before you commit to anything.",
       "Campaign tracking stays attached so marketing can see what drove the enquiry.",
     ],
@@ -739,7 +739,7 @@ export const campaigns: CampaignConfig[] = [
       {
         title: "See stays in the right city",
         description:
-          "Jump straight to the Gesco Stay listing experience for Accra and keep moving through your search.",
+          "Jump straight to the GescoStay listing experience for Accra and keep moving through your search.",
       },
       {
         title: "Keep your options open",
@@ -749,15 +749,15 @@ export const campaigns: CampaignConfig[] = [
       {
         title: "Get help without starting over",
         description:
-          "If you submit the help form, you still keep a clear route back into the main Gesco Stay search flow.",
+          "If you submit the help form, you still keep a clear route back into the main GescoStay search flow.",
       },
     ],
-    socialProofLabel: "Built around the same Gesco Stay browsing journey visitors meet on the live site.",
+    socialProofLabel: "Built around the same GescoStay browsing journey visitors meet on the live site.",
     faq: [
       {
         question: "Do I need an account before I browse?",
         answer:
-          "No. You can start exploring stays right away and continue through the live Gesco Stay journey from there.",
+          "No. You can start exploring stays right away and continue through the live GescoStay journey from there.",
       },
       {
         question: "Can someone help me choose a location?",
@@ -773,7 +773,7 @@ export const campaigns: CampaignConfig[] = [
     howItWorks: [
       {
         title: "Start your search",
-        description: "Open the live Gesco Stay listings experience.",
+        description: "Open the live GescoStay listings experience.",
       },
       {
         title: "Browse suitable stays",
@@ -781,7 +781,7 @@ export const campaigns: CampaignConfig[] = [
       },
       {
         title: "Continue with the booking flow",
-        description: "Move forward inside the main Gesco Stay product journey.",
+        description: "Move forward inside the main GescoStay product journey.",
       },
       {
         title: "Ask for local help if needed",
@@ -793,7 +793,7 @@ export const campaigns: CampaignConfig[] = [
       "Our Accra team can help you get started before you continue into the main search flow.",
     finalCtaTitle: "Ready to start looking?",
     finalCtaBody:
-      "Browse live Gesco Stay listings in Accra or ask the team to help you narrow things down.",
+      "Browse live GescoStay listings in Accra or ask the team to help you narrow things down.",
     language: "en",
     trackingCampaignName: "paid_social_accra_traveller_sep_2026",
     utmSource: "instagram",
@@ -801,9 +801,9 @@ export const campaigns: CampaignConfig[] = [
     utmCampaign: "accra-traveller-september-2026",
     utmContent: "reel-hero",
     slugSegments: ["ghana", "accra", "traveller-september-2026"],
-    metaTitle: "Find a Stay in Accra | Gesco Stay Campaign",
+    metaTitle: "Find a Stay in Accra | GescoStay Campaign",
     metaDescription:
-      "Browse Accra stays on Gesco Stay or ask the local team to help with your next search step.",
+      "Browse Accra stays on GescoStay or ask the local team to help with your next search step.",
     canonicalPath: "/campaigns/ghana/accra/traveller-september-2026",
     indexable: false,
     supportContact: contacts.Ghana,

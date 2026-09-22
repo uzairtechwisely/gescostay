@@ -1,12 +1,12 @@
-## Gesco Stay Campaign Landing Pages
+## GescoStay Campaign Landing Pages
 
-This project is a reusable landing-page system for Gesco Stay paid social campaigns.
+This project is a reusable landing-page system for GescoStay paid social campaigns.
 
 It includes:
 
 - a data-driven campaign model
 - reusable host and traveller landing page sections
-- tracked CTA handoff into the live Gesco Stay product
+- tracked CTA handoff into the live GescoStay product
 - a human-help lead form flow
 - a server endpoint ready for webhook-based lead routing
 

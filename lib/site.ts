@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Gesco Stay",
+  name: "GescoStay",
   description:
     "Discover unique stays and car rentals across Africa. Book, stay, belong.",
   siteUrl:

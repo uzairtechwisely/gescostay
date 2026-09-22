@@ -20,20 +20,20 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: "Gesco Stay Campaigns",
-    template: "%s | Gesco Stay",
+    default: "GescoStay Campaigns",
+    template: "%s | GescoStay",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   openGraph: {
-    title: "Gesco Stay Campaigns",
+    title: "GescoStay Campaigns",
     description: siteConfig.description,
     siteName: siteConfig.name,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gesco Stay Campaigns",
+    title: "GescoStay Campaigns",
     description: siteConfig.description,
   },
 };

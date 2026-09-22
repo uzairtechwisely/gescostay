@@ -484,7 +484,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
               <GescoMark size={38} />
               <div>
                 <p className="text-lg font-semibold tracking-[-0.01em]">
-                  <span className="text-[var(--color-brand-accent)]">g</span>stay
+                  GescoStay
                 </p>
                 <p className="hidden text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-brand-muted)] sm:block">
                   Book &middot; Stay &middot; Belong
@@ -823,10 +823,7 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
             <div className="flex items-center gap-2.5">
               <GescoMark size={34} />
               <div>
-                <p className="font-semibold">
-                  <span className="text-[var(--color-brand-accent)]">g</span>
-                  {siteConfig.name.replace("Gesco ", "")}
-                </p>
+                <p className="font-semibold">{siteConfig.name}</p>
                 <p className="text-sm text-[var(--color-brand-muted)]">
                   The spirit of African hospitality.
                 </p>
@@ -940,13 +937,13 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
 
 function GescoMark({ size = 36 }: { size?: number }) {
   return (
-    <span
-      className="flex shrink-0 items-center justify-center rounded-[0.6rem] bg-[var(--color-brand-accent)] font-serif font-bold text-white"
-      style={{ width: size, height: size, fontSize: size * 0.58 }}
-      aria-hidden="true"
-    >
-      g
-    </span>
+    <Image
+      src="/brand/gescostay-mark.png"
+      alt="GescoStay"
+      width={size}
+      height={size}
+      className="shrink-0 rounded-[0.6rem]"
+    />
   );
 }
 
@@ -970,7 +967,7 @@ function HostPolaroid({
       <div className="relative aspect-square overflow-hidden">
         <Image
           src={host.image}
-          alt={`${host.name}, Gesco Stay host`}
+          alt={`${host.name}, GescoStay host`}
           fill
           sizes="(max-width: 768px) 40vw, 12vw"
           className="object-cover"
@@ -1010,7 +1007,7 @@ function PropertyModalContent({
       <ConfirmationState
         eyebrow="Request received"
         title="We will help you check availability."
-        body={`Your reference is ${modal.referenceId}. A Gesco Stay team member will follow up using the details you shared.`}
+        body={`Your reference is ${modal.referenceId}. A GescoStay team member will follow up using the details you shared.`}
       />
     );
   }

@@ -5,9 +5,9 @@ import { CampaignPage } from "@/components/campaign/campaign-page";
 import { campaigns } from "@/lib/campaigns";
 
 export const metadata: Metadata = {
-  title: "Hidden Gems in Lagos | Gesco Stay",
+  title: "Hidden Gems in Lagos | GescoStay",
   description:
-    "Explore Lagos through a single-scroll Gesco Stay experience and choose between guided help or browsing local stays yourself.",
+    "Explore Lagos through a single-scroll GescoStay experience and choose between guided help or browsing local stays yourself.",
 };
 
 export default function Home() {

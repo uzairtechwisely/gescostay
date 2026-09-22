@@ -108,7 +108,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error:
-          "We could not pass your details to the Gesco Stay team just now. Please try again shortly.",
+          "We could not pass your details to the GescoStay team just now. Please try again shortly.",
       },
       { status: 502 },
     );

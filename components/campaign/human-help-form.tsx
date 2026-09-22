@@ -194,7 +194,7 @@ export function HumanHelpForm({ campaign }: HumanHelpFormProps) {
           We&apos;ve received your details.
         </h3>
         <p className="mt-3 text-sm leading-7 text-[var(--color-brand-muted)]">
-          A member of the Gesco Stay team will contact you using the details you
+          A member of the GescoStay team will contact you using the details you
           provided. Your reference is{" "}
           <span className="font-semibold text-[var(--color-brand-ink)]">
             {submissionState.referenceId}
@@ -224,7 +224,7 @@ export function HumanHelpForm({ campaign }: HumanHelpFormProps) {
           >
             {campaign.audienceType === "host"
               ? "Want to get started now? Create your host account."
-              : "Want to start exploring now? Browse Gesco Stay."}
+              : "Want to start exploring now? Browse GescoStay."}
           </a>
         </div>
       </div>
@@ -285,7 +285,7 @@ export function HumanHelpForm({ campaign }: HumanHelpFormProps) {
       </div>
 
       <div className="mt-6 rounded-2xl bg-[var(--color-brand-surface)] px-4 py-4 text-sm leading-7 text-[var(--color-brand-muted)]">
-        By submitting this form, you agree that Gesco Stay can contact you
+        By submitting this form, you agree that GescoStay can contact you
         about this request. Read the{" "}
         <a
           href={siteConfig.privacyUrl}

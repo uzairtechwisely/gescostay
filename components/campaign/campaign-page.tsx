@@ -56,7 +56,7 @@ export function CampaignPage({ campaign }: CampaignPageProps) {
                 GS
               </div>
               <div>
-                <p className="font-semibold">Gesco Stay</p>
+                <p className="font-semibold">GescoStay</p>
                 <p className="text-sm text-[var(--color-brand-muted)]">
                   Paid campaign landing pages
                 </p>
@@ -68,7 +68,7 @@ export function CampaignPage({ campaign }: CampaignPageProps) {
               rel="noreferrer"
               className="hidden rounded-full border border-[var(--color-brand-border)] px-5 py-3 text-sm font-semibold text-[var(--color-brand-ink)] transition hover:border-[var(--color-brand-primary)] hover:bg-[var(--color-brand-cream)] sm:inline-flex"
             >
-              Go to Gesco Stay
+              Go to GescoStay
             </a>
           </div>
         </header>
@@ -155,7 +155,7 @@ export function CampaignPage({ campaign }: CampaignPageProps) {
               <SectionHeading
                 eyebrow="How it works"
                 title="One campaign, two conversion routes"
-                body="Continue yourself into the live Gesco Stay product, or ask the local team to help you get started."
+                body="Continue yourself into the live GescoStay product, or ask the local team to help you get started."
               />
               <div className="mt-10 grid gap-5 lg:grid-cols-4">
                 {campaign.howItWorks.map((step, index) => (
@@ -183,7 +183,7 @@ export function CampaignPage({ campaign }: CampaignPageProps) {
               <div>
                 <SectionHeading
                   eyebrow="Trust"
-                  title="A clear handoff into the real Gesco Stay journey"
+                  title="A clear handoff into the real GescoStay journey"
                   body={campaign.socialProofLabel}
                 />
                 <div className="mt-8 grid gap-5 sm:grid-cols-2">
