@@ -480,16 +480,11 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
       <div className="bg-[var(--color-brand-bg)] text-[var(--color-brand-ink)]">
         <header className="sticky top-0 z-40 bg-[rgba(255,250,244,0.82)] backdrop-blur-xl">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-6 lg:px-8">
-            <Link href="/" className="flex items-center gap-2.5">
-              <GescoMark size={38} />
-              <div>
-                <p className="text-lg font-semibold tracking-[-0.01em]">
-                  GescoStay
-                </p>
-                <p className="hidden text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-brand-muted)] sm:block">
-                  Book &middot; Stay &middot; Belong
-                </p>
-              </div>
+            <Link href="/" className="flex items-center gap-3">
+              <GescoLockup height={46} />
+              <p className="hidden text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-brand-muted)] sm:block">
+                Book &middot; Stay &middot; Belong
+              </p>
             </Link>
             <div className="flex items-center gap-2.5 sm:gap-3">
               <button
@@ -807,14 +802,11 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
 
         <footer>
           <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-            <div className="flex items-center gap-2.5">
-              <GescoMark size={34} />
-              <div>
-                <p className="font-semibold">{siteConfig.name}</p>
-                <p className="text-sm text-[var(--color-brand-muted)]">
-                  The spirit of African hospitality.
-                </p>
-              </div>
+            <div className="flex items-center gap-3">
+              <GescoLockup height={28} />
+              <p className="text-sm text-[var(--color-brand-muted)]">
+                The spirit of African hospitality.
+              </p>
             </div>
             <div className="flex flex-wrap gap-5 text-sm text-[var(--color-brand-muted)]">
               <a href={siteConfig.privacyUrl}>Privacy Policy</a>
@@ -922,14 +914,16 @@ export function LagosTravellerPage({ campaign }: LagosTravellerPageProps) {
   );
 }
 
-function GescoMark({ size = 36 }: { size?: number }) {
+const LOCKUP_ASPECT_RATIO = 3508 / 2480;
+
+function GescoLockup({ height = 36 }: { height?: number }) {
   return (
     <Image
-      src="/brand/gescostay-mark.png"
+      src="/brand/gescostay-lockup.png"
       alt="GescoStay"
-      width={size}
-      height={size}
-      className="shrink-0 rounded-[0.6rem]"
+      width={Math.round(height * LOCKUP_ASPECT_RATIO)}
+      height={height}
+      className="shrink-0"
     />
   );
 }
